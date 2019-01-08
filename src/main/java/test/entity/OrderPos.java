@@ -14,7 +14,7 @@ public class OrderPos {
     private Integer id;
 
     @Column(name = "ORDERPOS_PRICE", nullable = false)
-    private Double price;
+    private Integer price;
 
     @Column(name = "ORDERPOS_QUANTITY", nullable = false)
     private Integer quantity;
@@ -29,6 +29,7 @@ public class OrderPos {
     @ManyToOne(targetEntity = Coat.class)
     @JoinColumn(name = "COAT_ID", nullable = false)
     private Coat coat;
+    private Integer prise;
 
     public Coat getCoat() {
         return coat;
@@ -44,14 +45,6 @@ public class OrderPos {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 
     public Integer getQuantity() {
@@ -77,4 +70,29 @@ public class OrderPos {
     public void setOrder(Order order) {
         this.order = order;
     }
+
+    public void setCaot(Coat caot) {
+        this.coat = coat;
+    }
+
+    public Coat getCaot() {
+        return coat;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrise(Integer prise) {
+        this.prise = prise;
+    }
+
+    public Integer getPrise() {
+        return prise;
+    }
 }
+

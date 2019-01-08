@@ -24,6 +24,7 @@ public class Clothes {
     public Set<Coat> getCoat() {
         return coat;
     }
+
     @OneToMany(mappedBy = "clothes")
     private Set<Coat> coat;
 

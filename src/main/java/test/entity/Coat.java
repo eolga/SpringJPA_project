@@ -2,6 +2,8 @@ package test.entity;
 
 import javax.persistence.*;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -31,6 +33,7 @@ public class Coat {
     @ManyToOne(targetEntity = Clothes.class)
     @JoinColumn(name = "COATCLOTHES_ID", nullable = false)
     private Clothes clothes;
+    private HashSet<OrderPos> orderPoss;
 
     public Integer getId() {
         return id;
@@ -78,5 +81,13 @@ public class Coat {
 
     public void setClothes(Clothes clothes) {
         this.clothes = clothes;
+    }
+
+    public void setOrderPoss(HashSet<OrderPos> orderPoss) {
+        this.orderPoss = orderPoss;
+    }
+
+    public HashSet<OrderPos> getOrderPoss() {
+        return orderPoss;
     }
 }

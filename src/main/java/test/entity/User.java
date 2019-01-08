@@ -2,6 +2,8 @@ package test.entity;
 
 import javax.persistence.*;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -23,8 +25,11 @@ public class User {
     private String phone;
 
     @OneToMany(mappedBy = "user")
-    private Set<Order> order;
+    private Set<Order> order = new HashSet<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Order> user2;
+    
     public Integer getId() {
         return id;
     }
@@ -56,4 +61,13 @@ public class User {
     public void setOrder(Set<Order> order) {
         this.order = order;
     }
+
+    public Set<Order> getUser2() {
+        return user2;
+    }
+
+    public void setUser2(Set<Order> user2) {
+        this.user2 = user2;
+    }
 }
+
